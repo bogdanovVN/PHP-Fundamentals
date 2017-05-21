@@ -14,5 +14,5 @@ class Person
 }
 
 $inputName = trim(fgets(STDIN));
-$inputAge = intval(trim(fgets(STDIN)));
+$inputAge = intval(fgets(STDIN));
 $person = new Person($inputName, $inputAge);

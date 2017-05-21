@@ -1,4 +1,5 @@
 <?php
+
 class Car
 {
     private $model;
@@ -38,9 +39,9 @@ class Car
 $numberOfCars = intval(trim(fgets(STDIN)));
 $cars = [];
 for ($i = 0; $i < $numberOfCars; $i++) {
-    $carInfo = explode(" ", trim(fgets(STDIN)));
+    $carInfo = explode(" ", fgets(STDIN));
     list($model, $fuelAmount, $fuelCostFor1km) =
-        [$carInfo[0], floatval($carInfo[1]), floatval($carInfo[2])];
+    [$carInfo[0], floatval($carInfo[1]), floatval($carInfo[2])];
     $car = new Car($model, $fuelAmount, $fuelCostFor1km);
     $cars[$model] = $car;
 }
@@ -50,10 +51,10 @@ while (true) {
         break;
     }
     $commandLine = explode(" ", $commandLine);
-    if($commandLine[0] != 'Drive'){
+    if ($commandLine[0] != 'Drive'){
         continue;
     }
-    list($carModel, $distanceTraveled) =
+    list ($carModel, $distanceTraveled) =
         [$commandLine[1],$commandLine[2]];
     $car = $cars[$carModel];
     try{

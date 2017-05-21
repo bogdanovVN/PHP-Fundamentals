@@ -1,7 +1,9 @@
 <?php
 declare(strict_types = 1);
+
 $data = generateArrayFromInput(trim(fgets(STDIN)));
 echo generateXmlFromArray($data);
+
 function generateArrayFromInput(string $input): array
 {
     $result = [];
@@ -13,6 +15,7 @@ function generateArrayFromInput(string $input): array
     }
     return $result;
 }
+
 function generateXmlFromArray(array $associativeArray): string
 {
     $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";

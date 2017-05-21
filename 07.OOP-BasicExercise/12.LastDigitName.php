@@ -1,15 +1,20 @@
 <?php
-class Number {
+class Number
+{
+
     private $number;
+
     public function __construct(string $number)
     {
         $this->number = $number;
     }
-    public function getLastDigitName(){
+
+    public function getLastDigitName()
+    {
         $digitCount = strlen($this->number);
         $lastDigit = $this->number[$digitCount - 1];
         $lastDigitName = '';
-        switch ($lastDigit){
+        switch ($lastDigit) {
             case "0": $lastDigitName = "zero"; break;
             case "1": $lastDigitName = "one"; break;
             case "2": $lastDigitName = "two"; break;
@@ -24,6 +29,7 @@ class Number {
         return $lastDigitName;
     }
 }
+
 $input = trim(fgets(STDIN));
 $number = new Number($input);
 echo $number->getLastDigitName();

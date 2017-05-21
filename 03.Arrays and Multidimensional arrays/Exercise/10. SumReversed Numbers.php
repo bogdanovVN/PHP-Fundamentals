@@ -1,10 +1,10 @@
 <?php
-$arr = preg_split('/\s+/', trim(fgets(STDIN)));
-$sum = 0;
-foreach ($arr as $item) {
-    $sum += floatval(strrev(trim($item, '0')));
+$input = array_map('trim', explode(' ', fgets(STDIN)));
+$reversedArr = [];
+foreach ($input as $element) {
+    $reversedArr[] = intval(strrev($element));
 }
-echo $sum;
+echo array_sum($reversedArr);
 
 /*
  * $input = '123 234 12';

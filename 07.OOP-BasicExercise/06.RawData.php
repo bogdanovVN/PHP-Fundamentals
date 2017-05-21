@@ -1,11 +1,13 @@
 <?php
+
 class Car
 {
     private $model;
     private $engine;
     private $cargo;
     private $tyres = array();
-    function __construct(string $model,
+
+    public function __construct(string $model,
                          Engine $engine,
                          Cargo $cargo,
                          Tyre $tyre1, Tyre $tyre2,
@@ -16,6 +18,7 @@ class Car
         $this->cargo = $cargo;
         $this->tyres = [$tyre1, $tyre2, $tyre3, $tyre4];
     }
+
     public function getModel()
     {
         return $this->model;
@@ -75,7 +78,7 @@ class Tyre
         return $this->pressure;
     }
 }
-$numberOfCars = intval(trim(fgets(STDIN)));
+$numberOfCars = intval(fgets(STDIN));
 $cars = [];
 for ($i = 0; $i < $numberOfCars; $i++) {
     $carInfo = explode(" ", trim(fgets(STDIN)));
@@ -105,7 +108,7 @@ foreach ($cars as $car) {
     if ($car->getCargo()->getType() === $type) {
         if ($type === 'flamable' && $car->getEngine()->getPower() > 250) {
             $output[] = $car->getModel();
-        } else if($type === 'fragile'){
+        } elseif ($type === 'fragile') {
             $tyres = $car->getTyres();
             foreach ($tyres as $tyre) {
                 if ($tyre->getPressure() < 1) {

@@ -5,6 +5,7 @@ class Car
     private $engine;
     private $weight;
     private $color;
+
     function __construct(string $model,
                          Engine $engine,
                          string $weight,
@@ -32,7 +33,8 @@ class Engine
     private $power;
     private $displacement;
     private $efficiency;
-    function __construct(string $model,
+
+    public function __construct(string $model,
                          string $power,
                          string $displacement,
                          string $efficiency)
@@ -59,9 +61,9 @@ class Engine
         return $this->efficiency;
     }
 }
-$n = intval(trim(fgets(STDIN)));
+$numberOfEngines = intval(fgets(STDIN));
 $engines = [];
-for ($i = 0; $i < $n; $i++) {
+for ($i = 0; $i < $numberOfEngines; $i++) {
     $engineInfo = explode(" ", trim(fgets(STDIN)));
     list($model, $power, $displacement, $efficiency) =
         [$engineInfo[0], floatval($engineInfo[1]), 'n/a', 'n/a'];
@@ -78,7 +80,7 @@ for ($i = 0; $i < $n; $i++) {
     $engine = new Engine($model, $power, $displacement, $efficiency);
     $engines[$model] = $engine;
 }
-$m = intval(trim(fgets(STDIN)));
+$m = intval(fgets(STDIN));
 $cars = [];
 for ($i = 0; $i < $m; $i++) {
     $carInfo = explode(" ", trim(fgets(STDIN)));

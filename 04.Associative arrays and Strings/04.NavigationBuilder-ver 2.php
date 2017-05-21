@@ -5,7 +5,6 @@
     <title>Navigation Builder</title>
 </head>
 <body>
-
 <form>
     <div>
         Categories: <input type="text" name="categories" required>
@@ -49,3 +48,4 @@ if (isset($_GET['categories']) &&
 
 </body>
 </html>
+

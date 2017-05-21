@@ -2,12 +2,12 @@
 $input = trim(fgets(STDIN));
 $average = getAverage($input);
 while ($average <= 5) {
-    $input = $input .= "9";
+    $input .= "9";
     $average = getAverage($input);
 }
 echo $input;
 
-function getAverage(&$num){
+function getAverage($num) {
     $sumOfDigits = 0;
     for ($i = 0; $i < strlen($num); $i++) {
         $sumOfDigits += intval($num[$i]);

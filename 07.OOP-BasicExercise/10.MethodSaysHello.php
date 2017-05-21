@@ -1,6 +1,8 @@
 <?php
-class Person{
+class Person
+{
     public $name;
+
     function __construct(string $name){
         $this->name = $name;
         echo $name . ' says "Hello"!';

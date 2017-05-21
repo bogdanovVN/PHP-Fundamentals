@@ -4,12 +4,11 @@ $inputCommands = array_map('trim', explode(' ', fgets(STDIN)));
 $command = $inputCommands[0];
 $outputResult = [];
 $outputArray = "";
-while ($command != 'print'){
+while ($command != 'print') {
     switch ($inputCommands[0]){
         case "add":
             $index = $inputCommands[1];
             $element = $inputCommands[2];
-            $output = "[";
             array_splice($inputArray, $index, 0, $element);
             $outputArray = "[" . implode(", ", $inputArray) . "]";
             //array_splice($outputResult, 0, 0, $output);
@@ -22,11 +21,11 @@ while ($command != 'print'){
             break;
         case "contains":
             $element = intval($inputCommands[1]);
-            $result = array_search($element, $inputArray);
-            if ($result || $result === 0){
-                array_push($outputResult, $result);
+            $position = array_search($element, $input);
+            if ($position !== false) {
+                echo $position . "\n";
             } else {
-                array_push($outputResult, "-1");
+                echo "-1\n";
             }
             break;
         case "remove":
@@ -65,4 +64,4 @@ foreach ($outputResult as $item) {
     echo $item . "\n";
 }
 echo $outputArray . "\n";
-//print_r($inputCommands);
+
